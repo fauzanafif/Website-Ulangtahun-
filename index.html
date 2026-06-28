@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday BEE ❤️</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- CURSOR SPARKLE -->
+<div id="cursor-sparkle"></div>
+
+<!-- MUSIC BUTTON -->
+<button id="music-btn" class="music-btn" title="Toggle Music">🎵</button>
+<audio id="bg-music" loop>
+  <source src="assets\shape my heart.mp3" type="audio/mpeg" />
+</audio>
+
+<!-- ===================== PAGE 1: LOADING ===================== -->
+<div id="loading-screen" class="page active">
+  <div class="loading-hearts-container" id="loading-hearts"></div>
+  <div class="loading-content">
+    <div class="loading-ring"></div>
+    <div class="loading-heart-big">❤️</div>
+    <p class="loading-text">Menyiapkan kejutan buat kesayangan aku😆🥰</p>
+    <div class="loading-dots"><span></span><span></span><span></span></div>
+  </div>
+</div>
+
+<!-- ===================== PAGE 2: BIRTHDAY CAKE + COUNTDOWN ===================== -->
+<div id="page-cake" class="page">
+  <div class="bokeh-container" id="bokeh"></div>
+  <div class="love-rain" id="love-rain"></div>
+  <div class="sparkles-container" id="sparkles"></div>
+
+  <div class="cake-section">
+    <div class="cake-wrapper">
+      <!-- 3D Cake -->
+      <div class="cake" id="cake">
+        <div class="candle-row">
+          <div class="candle"><div class="flame" id="flame1"><div class="flame-inner"></div></div></div>
+          <div class="candle"><div class="flame" id="flame2"><div class="flame-inner"></div></div></div>
+          <div class="candle"><div class="flame" id="flame3"><div class="flame-inner"></div></div></div>
+        </div>
+        <div class="cake-top">
+          <div class="cake-decoration">🌸 ❤️ 🌸</div>
+        </div>
+        <div class="cake-middle"></div>
+        <div class="cake-bottom"></div>
+        <div class="cake-plate"></div>
+      </div>
+    </div>
+
+    <div class="countdown-area">
+      <div id="countdown-number" class="countdown-number">15</div>
+      <div id="countdown-text" class="countdown-text typewriter-text"></div>
+    </div>
+  </div>
+
+  <!-- Flash overlay -->
+  <div id="flash-overlay" class="flash-overlay"></div>
+  <!-- Love explosion -->
+  <div id="love-explosion" class="love-explosion"></div>
+</div>
+
+<!-- ===================== PAGE 3: UCAPAN ===================== -->
+<div id="page-ucapan" class="page">
+  <div class="bokeh-container" id="bokeh2"></div>
+  <div class="love-rain" id="love-rain2"></div>
+  <div class="ucapan-container">
+    <div class="ucapan-photo-col">
+      <div class="photo-frame">
+        <img src="assets/Bee.jpeg" alt="Foto Spesial" class="ucapan-photo" />
+        <div class="photo-glow"></div>
+      </div>
+    </div>
+    <div class="ucapan-text-col">
+      <h2 class="ucapan-title">Selamat Ulang Tahun Cantik Kesayangan aku 🥹🥳❤️</h2>
+      <p id="ucapan-typewriter" class="ucapan-body"></p>
+    </div>
+  </div>
+  <button class="btn-next" onclick="goToPage('page-life')">Lanjut ➜</button>
+</div>
+
+<!-- ===================== PAGE 4: PERJALANAN HIDUP ===================== -->
+<div id="page-life" class="page">
+  <div class="bokeh-container" id="bokeh3"></div>
+  <div class="section-container reveal-section">
+    <h2 class="section-title">Waktu hidup yang sudah ditempuh kesayangan aku❤️</h2>
+    <div class="age-display">
+      <div class="age-card"><span id="age-years" class="age-number">0</span><span class="age-label">Tahun</span></div>
+      <div class="age-card"><span id="age-months" class="age-number">0</span><span class="age-label">Bulan</span></div>
+      <div class="age-card"><span id="age-days" class="age-number">0</span><span class="age-label">Hari</span></div>
+    </div>
+    <div class="life-cards">
+      <div class="life-card scroll-reveal">
+        <span class="life-card-icon">🎂</span>
+        <div class="life-card-info">
+          <strong>Lahir</strong>
+          <span>2 Juli 2003</span>
+        </div>
+      </div>
+      <div class="life-card scroll-reveal">
+        <span class="life-card-icon">✨</span>
+        <div class="life-card-info">
+          <strong>Setiap tahun adalah cerita dan tantangan baru</strong>
+          <span>Dan setiap hari sebuah pencapaian😇❤️</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="btn-next" onclick="goToPage('page-giftbox')">Lanjut ➜</button>
+</div>
+
+<!-- ===================== PAGE 5: MEMORY BOX ===================== -->
+<div id="page-giftbox" class="page">
+  <div class="bokeh-container" id="bokeh4"></div>
+  <div class="giftbox-section">
+    <h2 class="section-title">Sedikit kenangan kita ❤️</h2>
+    <div class="giftbox-wrapper" id="giftbox" onclick="openGiftBox()">
+      <div class="giftbox-sparkle" id="gbox-sparkle"></div>
+      <div class="giftbox-lid" id="gbox-lid">
+        <div class="giftbox-ribbon-h"></div>
+        <div class="giftbox-bow">🎀</div>
+      </div>
+      <div class="giftbox-body">
+        <div class="giftbox-ribbon-v"></div>
+      </div>
+      <div class="giftbox-light" id="gbox-light"></div>
+    </div>
+    <button class="btn-gift" id="btn-open-gift">Buka Kenangan 🎁</button>
+  </div>
+</div>
+
+<!-- ===================== PAGE 6: MEMORY GALLERY ===================== -->
+<div id="page-gallery" class="page">
+  <div class="bokeh-container" id="bokeh5"></div>
+  <div class="love-rain" id="love-rain3"></div>
+  <div class="gallery-container">
+    <h2 class="section-title">Kita Dengan Modenya ❤️</h2>
+    <div class="gallery-grid" id="gallery-grid">
+      <!-- Filled by JS -->
+    </div>
+    <p class="gallery-footer">Masih banyak lagii, dan yang belum kita buat ❤️</p>
+  </div>
+  <button class="btn-next" onclick="goToPage('page-quiz')">Lanjut ➜</button>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <button class="lb-close" onclick="closeLightbox()">✕</button>
+    <button class="lb-prev" onclick="lightboxPrev()">❮</button>
+    <img id="lb-img" src="" alt="" />
+    <p id="lb-caption" class="lb-caption"></p>
+    <button class="lb-next" onclick="lightboxNext()">❯</button>
+  </div>
+</div>
+
+<!-- ===================== PAGE 7: QUIZ ===================== -->
+<div id="page-quiz" class="page">
+  <div class="bokeh-container" id="bokeh6"></div>
+  <div class="quiz-container">
+    <h2 class="section-title">Tebak dulu sebelum lanjut 😆</h2>
+    <div id="quiz-card" class="quiz-card">
+      <p id="quiz-question" class="quiz-question"></p>
+      <div id="quiz-options" class="quiz-options"></div>
+      <div id="quiz-feedback" class="quiz-feedback"></div>
+    </div>
+    <div id="quiz-done" class="quiz-done" style="display:none;">
+      <p>🎉 Behh mantapss! Lanjut sayang😭❤️</p>
+      <button class="btn-next" onclick="goToPage('page-letter')">Lanjut ➜</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== PAGE 8: SURAT ===================== -->
+<div id="page-letter" class="page">
+  <div class="bokeh-container" id="bokeh7"></div>
+  <div class="letter-section">
+    <h2 class="section-title">Ada surat kecil kamu dari aku 💌</h2>
+    <div class="envelope-wrapper" id="envelope" onclick="openEnvelope()">
+      <div class="envelope-flap" id="env-flap"></div>
+      <div class="envelope-body">
+        <div class="envelope-heart">💌</div>
+      </div>
+    </div>
+    <div id="letter-content" class="letter-content">
+      <div class="letter-paper">
+        <p class="letter-text" id="letter-typewriter"></p>
+      </div>
+    </div>
+  </div>
+  <button class="btn-next" onclick="goToPage('page-timeline')">Lanjut ➜</button>
+</div>
+
+<!-- ===================== PAGE 9: TIMELINE ===================== -->
+<div id="page-timeline" class="page">
+  <div class="bokeh-container" id="bokeh8"></div>
+  <div class="timeline-container">
+    <h2 class="section-title">Cerita Kita ❤️</h2>
+    <div class="timeline">
+      <div class="timeline-item tl-left scroll-reveal">
+        <div class="tl-dot">❤️</div>
+        <div class="tl-card"><strong> 1st Date Semarang</strong><p>Saat itulah kita saling deg degan dengan wajah polos dan kueh ultah aku kedudukan😭</p></div>
+      </div>
+      <div class="tl-line-segment scroll-reveal"></div>
+      <div class="timeline-item tl-right scroll-reveal">
+        <div class="tl-dot">✨</div>
+        <div class="tl-card"><strong>2nd meet Acara HBH </strong><p>Di situ banyak cekcok terjadi dan kecemburuan, tapi kta berhasil melewati itu😭</p></div>
+      </div>
+      <div class="tl-line-segment scroll-reveal"></div>
+      <div class="timeline-item tl-left scroll-reveal">
+        <div class="tl-dot">😊</div>
+        <div class="tl-card"><strong>3rd date Semarang</strong><p>Di situ kita ngecamp alat seadanya makan bekicot magetan, ke candi, ke bunga.</p></div>
+      </div>
+      <div class="tl-line-segment scroll-reveal"></div>
+      <div class="timeline-item tl-right scroll-reveal">
+        <div class="tl-dot">🥳</div>
+        <div class="tl-card"><strong>4th meet PWT lagi</strong><p>Di situ kita keliling njemput teman2 di situ ibu kamu nitipin ke aku ahh ngeflayy😭❤️</p></div>
+      </div>
+      <div class="tl-line-segment scroll-reveal"></div>
+      <div class="timeline-item tl-left scroll-reveal">
+        <div class="tl-dot">✨</div>
+        <div class="tl-card"><strong>5th meet semarang </strong><p>Hampir seminggu di semarang bayangin😭,tapi seru banget di situ aku di ajak nyoba susi hampir ajah makan yang babi😭 terakhirnya kamu mewek parah di jalan waktu aku mau pulang 😭🫂</p></div>
+      </div>
+      <div class="tl-line-segment scroll-reveal"></div>
+      <div class="timeline-item tl-right scroll-reveal">
+        <div class="tl-dot">🎂</div>
+        <div class="tl-card"><strong>6th meet semarang </strong><p>Burung Kuntul kuliner, inget nggak yang di atas gedung kamu kesel hasil fotonya kurang bagus😭, terakhirnya kamu mewek parah di jalan waktu aku mau pulang 😭🫂</p></div>
+      </div>
+      <div class="tl-line-segment scroll-reveal"></div>
+      <div class="timeline-item tl-left scroll-reveal">
+        <div class="tl-dot">😊</div>
+        <div class="tl-card"><strong>7th Anniv date Semarang</strong><p>Asli sih ini suatu pencapaian aku, bisa ngerayain Anniv meski banyak deramanya😭🫂🥳</p></div>
+      </div>
+
+    </div>
+  </div>
+  <button class="btn-next" onclick="goToPage('page-final')">Lanjut ➜</button>
+</div>
+
+<!-- ===================== PAGE 10: FINAL SURPRISE ===================== -->
+<div id="page-final" class="page">
+  <div class="bokeh-container" id="bokeh9"></div>
+  <div class="love-rain" id="love-rain4"></div>
+  <div id="final-confetti"></div>
+  <div class="final-section">
+    <div id="final-surprise-btn-wrap">
+      <button class="btn-surprise" onclick="triggerFinalSurprise()">Klik untuk kejutan terakhir ❤️</button>
+    </div>
+    <div id="final-message" class="final-message" style="display:none;">
+      <div class="final-hb">❤️SEMALAT ULANG TAHUN CANTIK KESAYANGAN AKU ❤️</div>
+      <p class="final-sub">Semoga bahagia selalu bersama aku,Sedikit persembahan dari cowokmu ini maklum anakk IT😭😭❤️</p>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
